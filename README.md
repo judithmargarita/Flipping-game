@@ -2,7 +2,7 @@
 Exercise Codeforces 327A
 public class CodeForce02 {
     
-    public static int flippingGame(int n, int[] board) {
+    public int flippingGame(int n, int[] board) {
         int result = 0;
         int i = findingI(board,n);
         int j = findingJ(board,n);
@@ -13,10 +13,13 @@ public class CodeForce02 {
         for(int a : board) {
             result += a;
         }
+        if(j+i==0 && (i!=0 && j!=0)){
+            result = 0;
+        }
         return result;
     }
     
-    private static int findingI(int[] board, int n) {
+    private int findingI(int[] board, int n) {
         int index = 0;
         boolean hasFound = false;
         while(!hasFound && index < n) {
@@ -29,7 +32,7 @@ public class CodeForce02 {
         return index;
     }
     
-    private static int findingJ(int[] board, int n) {
+    private int findingJ(int[] board, int n) {
         int index = n-1;
         boolean hasFound = false;
         do{
